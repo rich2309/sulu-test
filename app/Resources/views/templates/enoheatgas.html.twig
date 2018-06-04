@@ -1,0 +1,222 @@
+{% extends "master.html.twig" %}
+
+{% block meta %}
+    {% include "SuluWebsiteBundle:Extension:seo.html.twig" with {
+        "seo": extension.seo|default([]),
+        "content": content|default([]),
+        "urls": urls|default([]),
+        "shadowBaseLocale": shadowBaseLocale|default(),
+        "defaultLocale": request.defaultLocale|default('de')
+    } %}
+{% endblock %}
+
+{% block content %}
+    <section class="section-background-title" style="background-image: url({% if content.banner_image[0] is defined %}{{ content.banner_image[0].url }}{% endif %});">
+        <div class="container-w-menu">
+            <section class="section-btn-offre page-full">
+                <div class="box-offre">
+                    <div class="offre-choice col-xs-30 col-sm-20">
+                        <a class="overlayer btn-2" href="#" data-overlayer="1" id="enovos_hero_btn_calculate_enoheatgas">
+                            <span>
+                                {% if content.banner_title is defined %}
+                                    {{ content.banner_title }}
+                                {% endif %}
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section class="section-nav-breadcrumb">
+        <div class="container-w-menu">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="/fr/Particuliers" id="enovos_breadcrumb_link_individuals">
+                        Particuliers
+                    </a>
+                </li>
+                <li>
+                    <a href="/fr/Particuliers/Production-d-energie" id="enovos_breadcrumb_link_decentral">
+                        Production d'énergie
+                    </a>
+                </li>
+                <li>
+                    <a href="/fr/Particuliers/Production-d-energie/enoheat-gas" id="enovos_breadcrumb_link_enoheatgas">
+                        enoheat gas
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="brackground-grey">
+
+        <div class="container-w-menu">
+            <section class="section-citation">
+                <div class="row">
+                    {% for presentation_item in content.page_presentation %}
+                        {% if presentation_item.type == 'page_description' %}
+                            <div class="col-sm-15">
+                                <div class="wysiwyg">
+                                    <h1>{{ presentation_item.description_title }}</h1>
+                                    {{ presentation_item.description_content|raw }}
+                                </div>
+                            </div>
+                        {% elseif presentation_item.type == 'page_quote' %}
+                            <div class="col-sm-12 col-sm-offset-3">
+                                <div class="text-citation">
+                                    <div class="wysiwyg"><p>{{ presentation_item.page_quote }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+
+        <div class="background-dark-grey">
+            <section id="icon" class="section-list-icon-2">
+                <div class="container-w-menu">
+                    <div class="row">
+                        <ul class="list-icon-2">
+                            {% for characteristic in content.service_characteristics %}
+                                <li class="txt-c col-sm-5">
+                                    <div class="background-orange-rounded">
+                                        <img src="{{ characteristic.service_image[0].url }}" alt="">
+                                    </div>
+                                    <span class="title upper">{{ characteristic.description_content }}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section id="body-2" class="section-padding">
+            <div class="container-w-menu">
+                <div class="row">
+                    <div class="col-sm-100">
+                        <div class="wysiwyg">
+                            {% for paragraph in content.description_paragraphs %}
+                                <h2>{{ paragraph.paragraph_title }}</h2>
+                                {{ paragraph.paragraph_content|raw }}
+                            {% endfor %}
+
+                            {% if content.table_rows|length and content.table_column_left is defined and content.table_column_right is defined %}
+                                <table border="1">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <p>
+                                                <strong>{{ content.table_column_left }}</strong>
+                                            </p>
+                                        </th>
+                                        <th scope="col">
+                                            <p>
+                                                <strong>{{ content.table_column_right }}</strong>
+                                            </p>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for row in content.table_rows %}
+                                        <tr>
+                                            <td>
+                                                <p>{{ row.table_cell_left }}</p>
+                                            </td>
+                                            <td>
+                                                <p>{{ row.table_cell_right }}</p>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% endif %}
+
+                            {% for mention in content.mentions %}
+                                <h6>
+                                    {% if mention.simple_mention is defined %}
+                                        {{ mention.simple_mention }}
+                                    {% endif %}
+                                </h6>
+                                <h6>
+                                    {% if mention.specific_mention is defined %}
+                                        {{ mention.specific_mention }}
+                                    {% endif %}
+                                </h6>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-tabs" id="tabs-system">
+            <div id="tabs" class="container-w-menu">
+                <div class="row">
+                    <ul class="tabs">
+                        <li class="txt-c tab-link is-active" data-tab="tab-2" id="enovos_onpage_tab_documents" style="width: 98%;">
+                            <span class="ezstring-field">{{ content.text_above }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="background-white box-shadow">
+                <div class="container-w-menu">
+                    <div id="tab-2" class="tab-content is-active">
+                        <div class="list-doc-pagination doc" style="border: 0; padding: 0;">
+                            <h4 class="title-doc upper">
+                                <span class="ezstring-field">
+                                    {{ content.media_title }}
+                                </span>
+                            </h4>
+                            <ul class="list-document list box" style="padding:0;">
+                                {% for page_resource in content.page_resources %}
+
+                                    {% if page_resource.type == 'media_source' %}
+
+                                        {% if page_resource.media_source[0].entity.type.name == 'image' %}
+                                            <li class="list-item type-img">
+                                                <a target="_blank" id="enovos_onpage_link_document_564" href="{{ page_resource.media_source[0].url }}">
+                                                    <span class="ezstring-field">{{ page_resource.media_description }}</span>
+                                                </a>
+                                            </li>
+                                        {% elseif page_resource.media_source[0].entity.type.name == 'document' %}
+                                            <li class="list-item type-default">
+                                                <a target="_blank" id="enovos_onpage_link_document_564" href="{{ page_resource.media_source[0].url }}">
+                                                    <span class="ezstring-field">{{ page_resource.media_description }}</span>
+                                                </a>
+                                            </li>
+                                        {% endif %}
+
+                                    {% elseif page_resource.type == 'link_source' %}
+                                        <li class="list-item">
+                                            <a target="_blank" href="{{ page_resource.link_source }}">
+                                                {{ page_resource.link_description }}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+
+                                {% endfor %}
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            {% for snippet in content.snippets %}
+                {{ snippet.title }}
+            {% endfor %}
+        </section>
+    </div>
+
+{% endblock %}

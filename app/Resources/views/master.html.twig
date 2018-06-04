@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% block stylesheets %}
+            {% include 'includes/sylesheets.html.twig' %}
+            <style>
+                .ml-container {
+                    margin-left: 267px;
+                    margin-top: 80px !important;
+                    padding-bottom: 0px !important;
+                }
+            </style>
+        {% endblock %}
+
+        {% block meta %}{% endblock %}
+
+        {% block style %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            {% block header %}
+
+                {% block top_menu %}
+                    {% include 'templates/general/menu/top_menu.html.twig' %}
+                {% endblock %}
+
+                {% block side_menu %}
+                    {% include 'templates/general/menu/side_menu.html.twig' %}
+                {% endblock %}
+
+            {% endblock %}
+        </header>
+
+        <div id="container" class="ml-container">
+            {% block content %}{% endblock %}
+        </div>
+
+        <footer style="position: relative !important;">
+            {% block footer %}
+                {% include 'templates/general/footer.html.twig' %}
+            {% endblock %}
+        </footer>
+
+        {% block javascripts %}
+            {% include 'includes/javascripts.html.twig' %}
+        {% endblock %}
+    </body>
+</html>

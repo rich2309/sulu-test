@@ -1,0 +1,15 @@
+{% extends 'master.html.twig' %}
+
+{% block content %}
+
+    {% for snippet in content.snippets %}
+        {{ snippet.title }}
+    {% endfor %}
+    {% if app.request.get('send') != 'true' %}
+        {# FORM THEME #}
+        {% form_theme content.form 'SuluFormBundle:themes:dynamic.html.twig' %}
+        {{ form(content.form) }}
+    {% else %}
+        <h2>your data has been saved</h2>
+    {% endif %}
+{% endblock %}

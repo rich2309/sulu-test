@@ -1,0 +1,425 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>enoheatgas</key>
+
+    <view>templates/enoheatgas</view>
+    <controller>SuluWebsiteBundle:Default:index</controller>
+    <cacheLifetime>2400</cacheLifetime>
+
+    <meta>
+        <title lang="en">Enoheatgas</title>
+        <title lang="de">Enoheatgas</title>
+    </meta>
+
+    <properties>
+        <section name="page_title">
+            <properties>
+                <property name="title" type="text_line" mandatory="true">
+                    <meta>
+                        <title lang="en">Title</title>
+                        <title lang="de">Titel</title>
+                    </meta>
+                    <params>
+                        <param name="headline" value="true"/>
+                    </params>
+
+                    <tag name="sulu.rlp.part"/>
+                </property>
+
+                <property name="url" type="resource_locator" mandatory="true">
+                    <meta>
+                        <title lang="en">Resourcelocator</title>
+                        <title lang="de">Adresse</title>
+                    </meta>
+
+                    <tag name="sulu.rlp"/>
+                </property>
+            </properties>
+        </section>
+
+        <section name="page_banner">
+            <meta>
+                <title lang="DE">Page banner</title>
+                <title lang="en">Page banner</title>
+                <title lang="fr">Page banner</title>
+            </meta>
+            <properties>
+                <property  name="banner_title" type="text_line">
+                    <meta>
+                        <title lang="de">Banner title</title>
+                        <title lang="en">Banner title</title>
+                        <title lang="fr">Banner title</title>
+                    </meta>
+                </property>
+                <property  name="banner_image" type="media_selection" maxOccurs="1">
+                    <meta>
+                        <title lang="de">Banner image</title>
+                        <title lang="en">Banner image</title>
+                        <title lang="fr">Banner image</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+        <section name="page_presentation">
+            <meta>
+                <title lang="de">Seitenpräsentation</title>
+                <title lang="en">Page presentation</title>
+                <title lang="fr">Présentation de la page</title>
+            </meta>
+            <properties>
+                <block name="page_presentation" default-type="page_description" maxOccurs="2">
+                    <meta>
+                        <title lang="de">Inhalt</title>
+                        <title lang="en">Content</title>
+                        <title lang="fr">Contenu</title>
+                    </meta>
+                    <types>
+                        <type name="page_description">
+                            <meta>
+                                <title lang="de">Seitenbeschreibung</title>
+                                <title lang="en">Page description</title>
+                                <title lang="fr">Description de la page</title>
+                            </meta>
+
+                            <properties>
+                                <property name="description_title" type="text_line">
+                                    <meta>
+                                        <title lang="de">Seitenbeschreibung</title>
+                                        <title lang="en">Title of the description</title>
+                                        <title lang="fr">Description de la page</title>
+                                    </meta>
+                                </property>
+                                <property name="description_content" type="text_editor">
+                                    <meta>
+                                        <title lang="de">Seitenbeschreibung</title>
+                                        <title lang="en">Content of the description</title>
+                                        <title lang="fr">Contenu de la description</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                        <type name="page_quote">
+                            <meta>
+                                <title lang="de">Seitenzitat</title>
+                                <title lang="en">Page quote</title>
+                                <title lang="fr">Citation de page</title>
+                            </meta>
+                            <properties>
+                                <property name="page_quote" type="text_area">
+                                    <meta>
+                                        <title lang="de">Seitenzitat</title>
+                                        <title lang="en">Page quote</title>
+                                        <title lang="fr">Citation de page</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+        </section>
+
+        <section name="service_characteristics">
+            <meta>
+                <title lang="de">Dienstleistungsmerkmale</title>
+                <title lang="en">Service characteristics</title>
+                <title lang="fr">caractéristiques du service</title>
+            </meta>
+            <properties>
+                <block name="service_characteristics" default-type="service_characteristic" mandatory="true">
+                    <meta>
+                        <title lang="de">Inhalt</title>
+                        <title lang="en">Content</title>
+                        <title lang="fr">Contenu</title>
+                    </meta>
+                    <types>
+                        <type name="service_characteristic">
+                            <meta>
+                                <title lang="de">Dienstleistungsmerkmale</title>
+                                <title lang="en">Service characteristics</title>
+                                <title lang="fr">caractéristiques du service</title>
+                            </meta>
+
+                            <properties>
+                                <property name="service_image" type="media_selection" mandatory="true">
+                                    <meta>
+                                        <title lang="de">Bild des Dienstes</title>
+                                        <title lang="en">Image of service</title>
+                                        <title lang="fr">Image du service</title>
+                                    </meta>
+                                </property>
+                                <property name="description_content" type="text_line" mandatory="true">
+                                    <meta>
+                                        <title lang="de">Servicebeschreibung</title>
+                                        <title lang="en">Description of service</title>
+                                        <title lang="fr">Description du service</title>
+                                    </meta>
+                                    <params>
+                                        <param name="types" value="image"/>
+                                    </params>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+        </section>
+
+        <section name="description_paragraphs">
+            <meta>
+                <title lang="de">Beschreibung Absätze</title>
+                <title lang="en">Description paragraphs</title>
+                <title lang="fr">paragraphes de description</title>
+            </meta>
+            <properties>
+                <block name="description_paragraphs" default-type="description_paragraph">
+                    <meta>
+                        <title lang="de">Inhalt</title>
+                        <title lang="en">Content</title>
+                        <title lang="fr">Contenu</title>
+                    </meta>
+                    <types>
+                        <type name="description_paragraph">
+                            <meta>
+                                <title lang="en">Description paragraph</title>
+                                <title lang="fr">paragraphe de description</title>
+                            </meta>
+
+                            <properties>
+                                <property name="paragraph_title" type="text_line">
+                                    <meta>
+                                        <title lang="de">Titel des Absatzes</title>
+                                        <title lang="en">Title of paragraph</title>
+                                        <title lang="fr">Titre du paragraphe</title>
+                                    </meta>
+                                </property>
+
+                                <property name="paragraph_content" type="text_editor">
+                                    <meta>
+                                        <title lang="de">Inhalt des Absatzes</title>
+                                        <title lang="en">Content of paragraph</title>
+                                        <title lang="fr">Contenu du paragraphe</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+        </section>
+
+        <section name="table_comumns">
+            <meta>
+                <title lang="de">Spalten der tabelle</title>
+                <title lang="en">Table columns</title>
+                <title lang="fr">Colonnes de la table</title>
+            </meta>
+            <properties>
+                <property name="table_column_left" type="text_line">
+                    <meta>
+                        <title lang="de">Text der linken Spalte</title>
+                        <title lang="en">Text of the left column</title>
+                        <title lang="fr">texte de la colonne à gauche</title>
+                    </meta>
+                </property>
+                <property name="table_column_right" type="text_line">
+                    <meta>
+                        <title lang="de">Text der rechten Spalte</title>
+                        <title lang="en">Text of the right column</title>
+                        <title lang="fr">texte de la colonne à droit</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+        <section name="table_rows">
+            <meta>
+                <title lang="de">Zeilen der tabelle</title>
+                <title lang="en">Table rows</title>
+                <title lang="fr">files de la table</title>
+            </meta>
+            <properties>
+                <block name="table_rows" default-type="table_row">
+                    <meta>
+                        <title lang="de">Inhalt</title>
+                        <title lang="en">Content</title>
+                        <title lang="fr">Contenu</title>
+                    </meta>
+                    <types>
+                        <type name="table_row">
+                            <meta>
+                                <title lang="de">Reihe</title>
+                                <title lang="en">Row</title>
+                                <title lang="fr">Ligne</title>
+                            </meta>
+
+                            <properties>
+                                <property name="table_cell_left" type="text_line">
+                                    <meta>
+                                        <title lang="de">Linke zelle</title>
+                                        <title lang="en">Left cell</title>
+                                        <title lang="fr">Cellule à gauche</title>
+                                    </meta>
+                                </property>
+                                <property name="table_cell_right" type="text_line">
+                                    <meta>
+                                        <title lang="de">Rechte zelle</title>
+                                        <title lang="en">Right cell</title>
+                                        <title lang="fr">Cellule à droit</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+        </section>
+
+        <section name="mentions">
+            <meta>
+                <title lang="de">Erwähnungen</title>
+                <title lang="en">Mentions</title>
+                <title lang="fr">Mentions</title>
+            </meta>
+            <properties>
+                <block name="mentions" default-type="simple_mention">
+                    <meta>
+                        <title lang="de">Inhalt</title>
+                        <title lang="en">Content</title>
+                        <title lang="fr">Contenu</title>
+                    </meta>
+                    <types>
+                        <type name="simple_mention">
+                            <meta>
+                                <title lang="de">einfache Erwähnung</title>
+                                <title lang="en">Simple mention</title>
+                                <title lang="fr">Mention simple</title>
+                            </meta>
+
+                            <properties>
+                                <property name="simple_mention" type="text_line">
+                                    <meta>
+                                        <title lang="de">Text</title>
+                                        <title lang="en">Text</title>
+                                        <title lang="fr">Texte</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                        <type name="specific_mention">
+                            <meta>
+                                <title lang="de">spezifische Erwähnung</title>
+                                <title lang="en">Specific mention</title>
+                                <title lang="fr">Mention spécifique</title>
+                            </meta>
+
+                            <properties>
+                                <property name="specific_mention" type="text_area">
+                                    <meta>
+                                        <title lang="de">Text</title>
+                                        <title lang="en">Text</title>
+                                        <title lang="fr">Texte</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+        </section>
+
+        <section name="page_resources">
+            <meta>
+                <title lang="de">Ressourcen der Seite</title>
+                <title lang="en">Resources of the page</title>
+                <title lang="fr">Ressources de la page</title>
+            </meta>
+            <properties>
+                <property name="text_above" type="text_line">
+                    <meta>
+                        <title lang="de">Text oben</title>
+                        <title lang="en">Text above</title>
+                        <title lang="fr">Texte au dessus</title>
+                    </meta>
+                </property>
+                <property name="media_title" type="text_line">
+                    <meta>
+                        <title lang="de">Medientitel</title>
+                        <title lang="en">Media title</title>
+                        <title lang="fr">Titre de média</title>
+                    </meta>
+                </property>
+                <block name="page_resources" default-type="media_source">
+                    <meta>
+                        <title lang="de">Ressourcen der Seite</title>
+                        <title lang="en">Page resources</title>
+                        <title lang="fr">Ressources de la page</title>
+                    </meta>
+                    <types>
+                        <type name="media_source">
+                            <meta>
+                                <title lang="de">Medienquelle</title>
+                                <title lang="en">Media source</title>
+                                <title lang="fr">Source multimédia</title>
+                            </meta>
+                            <properties>
+                                <property name="media_source" type="media_selection">
+                                    <meta>
+                                        <title lang="de">Medienquelle</title>
+                                        <title lang="en">Media source</title>
+                                        <title lang="fr">Source multimédia</title>
+                                    </meta>
+                                    <params>
+                                        <param name="types" value="document,image"/>
+                                    </params>
+                                </property>
+                                <property name="media_description" type="text_line">
+                                    <meta>
+                                        <title lang="de">Beschreibung der Multimediadatei</title>
+                                        <title lang="en">Media description</title>
+                                        <title lang="fr">Description du fichier multimédia</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                        <type name="link_source">
+                            <meta>
+                                <title lang="de">Quellentyp-Link</title>
+                                <title lang="en">Link source</title>
+                                <title lang="fr">Source type lien</title>
+                            </meta>
+                            <properties>
+                                <property name="link_source" type="url">
+                                <meta>
+                                    <title lang="de">Quellentyp-Link</title>
+                                    <title lang="en">Link source</title>
+                                    <title lang="fr">Source type lien</title>
+                                </meta>
+                                </property>
+                                <property name="link_description" type="text_line">
+                                    <meta>
+                                        <title lang="de">Text auf der Website</title>
+                                        <title lang="en">Text in site</title>
+                                        <title lang="fr">Texte dans le site</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+
+                <property name="snippets" type="snippet">
+                    <meta>
+                        <title lang="en">Snippets</title>
+                    </meta>
+                </property>
+
+            </properties>
+        </section>
+
+    </properties>
+</template>
