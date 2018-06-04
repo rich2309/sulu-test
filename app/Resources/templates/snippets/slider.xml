@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>slider</key>
+
+    <meta>
+        <title lang="en">Slider</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+            </meta>
+            <tag name="sulu.node.name"/>
+        </property>
+        <block name="slider" default-type="slider_item">
+            <types>
+                <type name="slider_item">
+                    <properties>
+                        <property name="slide_title" type="text_line" mandatory="true">
+                            <meta>
+                                <title lang="en">Slide title</title>
+                            </meta>
+                        </property>
+                        <property name="slider_description" type="text_area" mandatory="true">
+                            <meta>
+                                <title lang="en">Slide description</title>
+                            </meta>
+                        </property>
+                        <property name="slide_image" type="media_selection" maxOccurs="1">
+                            <meta>
+                                <title lang="en">Slide image</title>
+                            </meta>
+                            <params>
+                                <param name="types" value="image"/>
+                            </params>
+                        </property>
+                        <property name="slide_text_button" type="text_line">
+                            <meta>
+                                <title lang="en">Slide text button</title>
+                            </meta>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
+    </properties>
+</template>
