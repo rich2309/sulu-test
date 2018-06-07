@@ -1,0 +1,73 @@
+<div id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+        {% for index in 0..(slider_content.slider|length -1) %}
+            {% if index == 0 %}
+                <li data-target="#myCarousel" data-slide-to="{{ index }}" class="active"></li>
+            {% else %}
+                <li data-target="#myCarousel" data-slide-to="{{ index }}" class=""></li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+    <!-- Wrapper for Slides test -->
+    <div class="carousel-inner">
+        {% for slider_item in slider_content.slider %}
+            {% if loop.index0 == 0 %}
+                <div class="item active" style="height: 430px;">
+
+                    <div class="fill" data-sm="{{ slider_item.slide_image[0].url }}" data-md="{{ slider_item.slide_image[0].url }}" data-lg="{{ slider_item.slide_image[0].url }}" style="background-image:url('{{ slider_item.slide_image[0].url }}');"></div>
+                    <div class="carousel-caption">
+                        <div class="container-w-menu">
+                            <div class="carousel-content top right">
+                                <h2><span class="ezstring-field">{{ slider_item.slide_title }}</span></h2>
+                                <div class="wysiwyg">
+                                    <p>
+                                        {% if slider_item.slider_description is not same as("") %}
+                                            {{ slider_item.slider_description }}
+                                        {% endif %}
+                                    </p>
+                                    <p>
+                                        {% if slider_item.slide_text_button is not same as("")%}
+                                            <a href="/en/Individuals/f/Documents-and-forms" class="button">{{ slider_item.slide_text_button }}</a>
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="item" style="height: 430px;">
+
+                    <div class="fill" data-sm="{{ slider_item.slide_image[0].url }}" data-md="{{ slider_item.slide_image[0].url }}" data-lg="{{ slider_item.slide_image[0].url }}" style="background-image:url('{{ slider_item.slide_image[0].url }}');"></div>
+                    <div class="carousel-caption">
+                        <div class="container-w-menu">
+                            <div class="carousel-content top right">
+                                <h2><span class="ezstring-field">{{ slider_item.slide_title }}</span></h2>
+                                <div class="wysiwyg">
+                                    <p>
+                                        {% if slider_item.slider_description is not same as("") %}
+                                            {{ slider_item.slider_description }}
+                                        {% endif %}
+                                    </p>
+                                    <p>
+                                        {% if slider_item.slide_text_button is not same as("")%}
+                                            <a href="/en/Individuals/f/Documents-and-forms" class="button">{{ slider_item.slide_text_button }}</a>
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
+
+</div>

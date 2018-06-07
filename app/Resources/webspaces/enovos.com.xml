@@ -3,8 +3,8 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://schemas.sulu.io/webspace/webspace http://schemas.sulu.io/webspace/webspace-1.1.xsd">
 
-    <name>example.com</name>
-    <key>example</key>
+    <name>enovos.com</name>
+    <key>enovos</key>
 
     <localizations>
         <localization language="en" />
@@ -35,8 +35,8 @@
 
     <portals>
         <portal>
-            <name>example.com</name>
-            <key>example</key>
+            <name>enovos.com.lu</name>
+            <key>enovos_lu</key>
 
             <environments>
                 <environment type="prod">

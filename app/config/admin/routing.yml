@@ -105,3 +105,22 @@ sulu_form_api:
     type: rest
     resource: "@SuluFormBundle/Resources/config/routing_api.yml"
     prefix: /admin/api
+
+sulu_article_api:
+    resource: "@SuluArticleBundle/Resources/config/routing_api.xml"
+    type: rest
+    prefix: /admin/api
+
+sulu_article:
+    resource: "@SuluArticleBundle/Resources/config/routing.xml"
+    prefix: /admin/articles
+
+#sulu_automation_api:
+#    type: rest
+#    resource: "@SuluAutomationBundle/Resources/config/routing_api.xml"
+#    prefix: /admin/api
+#
+#sulu_automation:
+#    type: rest
+#    resource: "@SuluAutomationBundle/Resources/config/routing.xml"
+#    prefix: /admin/automation

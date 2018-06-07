@@ -211,12 +211,11 @@
                 </div>
             </div>
         </section>
-
-        <section>
-            {% for snippet in content.snippets %}
-                {{ snippet.title }}
-            {% endfor %}
-        </section>
     </div>
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('admin/public/js/pages/enoheatgas.js') }}"></script>
 {% endblock %}

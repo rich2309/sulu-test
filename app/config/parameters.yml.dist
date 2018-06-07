@@ -32,3 +32,5 @@ parameters:
     phpcr_user: admin
     phpcr_pass: admin
     phpcr_cache: file_system
+
+    default_host: localhost:8000

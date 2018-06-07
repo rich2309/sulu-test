@@ -1,0 +1,48 @@
+{% extends "master.html.twig" %}
+
+{% block content %}
+    <section class="section-nav-breadcrumb">
+        <div class="container-w-menu">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="/en/Individuals" id="enovos_breadcrumb_link_individuals">
+                        Individuals
+                    </a>
+                </li>
+                <li>
+                    <a href="/en/Individuals/f/News" id="enovos_breadcrumb_link_news">
+                        News
+                    </a>
+                </li>
+                <li>
+                    <a href="/en/Individuals/f/News/New-pricing-conditions38">
+                        New pricing conditions
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="background-grey">
+        <div class="container-w-menu">
+            <section class="section-citation">
+                <h2 property="title" class="title-h2"><span class="ezstring-field">{{ content.title }}</span></h2>
+                <p property="date" class="box-2-description"><em></em></p><div class="ezdate-field"><em>{{ content.date|date('d/m/y') }}</em></div><p></p>
+                <div class="row">
+                    <div>
+                        <div class="wysiwyg">
+                            <p class="paraClass">
+                                {{ content.article|raw }}
+                            </p>
+                            <p>
+                                <a href="https://enovos.lu/content/download/1345/60592" target="_blank" class="read-more" id="linkClass">Download our pricing conditions</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+{% endblock %}

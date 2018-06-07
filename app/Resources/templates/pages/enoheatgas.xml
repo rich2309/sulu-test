@@ -411,13 +411,6 @@
                         </type>
                     </types>
                 </block>
-
-                <property name="snippets" type="snippet">
-                    <meta>
-                        <title lang="en">Snippets</title>
-                    </meta>
-                </property>
-
             </properties>
         </section>
 

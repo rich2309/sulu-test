@@ -15,7 +15,8 @@
     </meta>
 
     <properties>
-        <section name="top">
+
+        <section name="page_title">
             <properties>
                 <property name="title" type="text_line" mandatory="true">
                     <meta>
@@ -40,26 +41,155 @@
             </properties>
         </section>
 
-        <section name="top_banner">
+        <section name="top_slider">
             <meta>
-                <title lang="en">title english</title>
-                <title lang="de">title german</title>
+                <title lang="en">Top slider</title>
             </meta>
             <properties>
-                <property name="article" type="text_editor">
+                <property name="top_slider" type="snippet" maxOccurs="1">
                     <meta>
-                        <title lang="en">Article</title>
-                        <title lang="de">Artikel</title>
+                        <title lang="en">Top slider</title>
+                    </meta>
+                    <params>
+                        <param name="snippetType" value="slider"/>
+                    </params>
+                </property>
+            </properties>
+        </section>
+
+        <section name="services">
+            <meta>
+                <title lang="en">Services</title>
+            </meta>
+            <properties>
+                <property name="services" type="text_line">
+                    <meta>
+                        <title lang="en">Text in page</title>
+                    </meta>
+                </property>
+                <block name="block_services" default-type="service">
+                    <meta>
+                        <title lang="en">Service icons</title>
+                    </meta>
+                    <types>
+                        <type name="service">
+                            <properties>
+                                <property name="icon_service" type="text_line">
+                                    <meta>
+                                        <title lang="en">Service icon name</title>
+                                        <info_text lang="en">Example: fire. All icon name list in https://fontawesome.com/v4.7.0/icons/</info_text>
+                                    </meta>
+                                </property>
+                                <property name="description_service" type="text_line">
+                                    <meta>
+                                        <title lang="en">Service description</title>
+                                    </meta>
+                                </property>
+                                <property name="hl_map_zone" type="single_select">
+                                    <meta>
+                                        <title lang="en">Highlight zone in map</title>
+                                    </meta>
+                                    <params>
+                                        <param name="default_value" value="produits-connectes"/>
+                                        <param name="values" type="collection">
+                                            <param name="produits-connectes">
+                                                <meta>
+                                                    <title lang="en">Connected products</title>
+                                                </meta>
+                                            </param>
+                                            <param name="efficacite-energetique">
+                                                <meta>
+                                                    <title lang="en">Energetic efficiency</title>
+                                                </meta>
+                                            </param>
+                                            <param name="production-decentralisee">
+                                                <meta>
+                                                    <title lang="en">Decentralized production</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ecomobilite">
+                                                <meta>
+                                                    <title lang="en">Ecomobility</title>
+                                                </meta>
+                                            </param>
+                                            <param name="fourniture-de-gaz-100-naturel">
+                                                <meta>
+                                                    <title lang="en">Gas supply</title>
+                                                </meta>
+                                            </param>
+                                            <param name="fourniture-delectricite-verte">
+                                                <meta>
+                                                    <title lang="en">Electricity supply</title>
+                                                </meta>
+                                            </param>
+                                        </param>
+                                    </params>
+                                </property>
+                                <property name="ref_link" type="url">
+                                    <meta>
+                                        <title lang="en">Reference link</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+        </section>
+
+        <section name="customer_options">
+            <meta>
+                <title lang="en">Customer options</title>
+            </meta>
+            <properties>
+                <property name="customer_banner" type="media_selection">
+                    <meta>
+                        <title lang="en">Image banner</title>
+                    </meta>
+                </property>
+                <property name="customer_title" type="text_line">
+                    <meta>
+                        <title lang="en">Title</title>
+                    </meta>
+                </property>
+                <block name="customer_o" default-type="customer_option">
+                    <meta>
+                        <title lang="en">Customer options</title>
+                    </meta>
+                    <types>
+                        <type name="customer_option">
+                            <properties>
+                                <property name="title" type="text_line">
+                                    <meta>
+                                        <title lang="en">Option title</title>
+                                    </meta>
+                                </property>
+                                <property name="icon" type="text_line">
+                                    <meta>
+                                        <title lang="en">Option icon name</title>
+                                    </meta>
+                                </property>
+                                <property name="option_content" type="text_editor">
+                                    <meta>
+                                        <title lang="en">Option content</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+        </section>
+        
+        <section name="actualites">
+            <properties>
+                <property name="teasers" type="teaser_selection">
+                    <meta>
+                        <title lang="en">Teasers</title>
                     </meta>
                 </property>
             </properties>
         </section>
 
-
-        <property name="faq" type="snippet">
-            <meta>
-                <title lang="en">FAQ</title>
-            </meta>
-        </property>
     </properties>
 </template>

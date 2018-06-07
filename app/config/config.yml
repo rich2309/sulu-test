@@ -86,6 +86,7 @@ sulu_core:
         structure:
             default_type:
                 snippet: "default"
+                article: "ariticle_default"
             paths:
                 homepage:
                     path: "%kernel.root_dir%/Resources/templates/pages"
@@ -96,6 +97,9 @@ sulu_core:
                 snippet:
                     path: "%kernel.root_dir%/Resources/templates/snippets"
                     type: "snippet"
+                article:
+                    path: "%kernel.root_dir%/Resources/templates/articles"
+                    type: "article"
 
 # SuluDocumentManager Configuration
 sulu_document_manager:
@@ -136,6 +140,18 @@ sulu_media:
         local:
             path: "%kernel.var_dir%/uploads/media"
 
+sulu_route:
+    mappings:
+        Sulu\Bundle\ArticleBundle\Document\ArticleDocument:
+            generator: "schema"
+            options:
+                route_schema: "/articles/{object.getTitle()}"
+        Sulu\Bundle\ArticleBundle\Document\ArticlePageDocument:
+            generator: "article_page"
+            options:
+                route_schema: "/{translator.trans(\"page\")}-{object.getPageNumber()}"
+                parent: "{object.getParent().getRoutePath()}"
+
 
 dubture_f_fmpeg:
     ffmpeg_binary: /usr/local/bin/ffmpeg # path to ffmpeg
@@ -148,3 +164,24 @@ dubture_f_fmpeg:
 services:
     jms_serializer.cache_naming_strategy: "@sulu_core.serialize_caching_strategy"
 
+
+
+ongr_elasticsearch:
+    analysis:
+        tokenizer:
+            pathTokenizer:
+                type: path_hierarchy
+        analyzer:
+            pathAnalyzer:
+                tokenizer: pathTokenizer
+    managers:
+        default:
+            index:
+                index_name: su_articles
+            mappings:
+                - SuluArticleBundle
+        live:
+            index:
+                index_name: su_articles_live
+            mappings:
+                - SuluArticleBundle

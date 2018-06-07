@@ -35,7 +35,9 @@
         "doctrine/doctrine-fixtures-bundle": "~2.3",
         "doctrine/doctrine-bundle": "^1.0",
         "doctrine/doctrine-cache-bundle": "^1.0",
-        "sulu/sulu-form-bundle": "^0.4.0"
+        "sulu/sulu-form-bundle": "^0.4.0",
+        "sulu/article-bundle": "^0.7.1",
+        "sulu/automation-bundle": "^1.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.8 || ~3.0",
